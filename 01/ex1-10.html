@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>]</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+    </head>
+    <body>
+        <!-- img 태그는 닫는 기호(/>)가 없다 -->
+        <h3>이미지</h3>
+        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+            alt="구글 로고">
+
+        <p>이미지 링크</p>
+        <a href="http://www.google.com">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+            alt="구글 로고">
+        </a>
+
+        <!-- 
+            게시 가능 이미지 확장자
+            .bmp 
+            .gif 투명 가능 8bit (RGBA), 여러 프레임 저장 가능
+            .jpg 투명 불가 24bit (RGB), 저작권
+            .png 투명 가능 32bit (RGBA)
+            .webp 투명 가능 (RGBA)
+        -->
+        
+        <h3>이미지 맵</h3>
+        <img src="../img/img_map.jpg" alt usemap="#mymap">
+        <map name="mymap">
+            <area href="https://www.naver.com" title="네이버" shape="rect" coords="500,500,700,700">
+            <area href="http://www.google.com" title="구글" shape="circle" coords="600, 300, 100">
+            <area href="https://www.daum.net" title="다음" shape="poly" coords="204,574,71,687,143,867,286,854">
+        </map>
+    </body>
+</html>
