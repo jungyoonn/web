@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+        <style>
+            input {
+                padding: .5em;
+            }
+        </style>
+    </head>
+    <body>
+        <form novalidate>
+            <fieldset>
+                <legend>type 속성</legend>
+                <p>아이디 <input type="text" name="id" placeholder="아이디를 입력하세요" maxlength="10" required></p>
+                <p>비밀번호 <input type="password" name="pw" placeholder="비밀번호를 입력하세요"></p>
+                <p>검색 <input type="search" name="search"></p>
+                <p>이메일 <input type="email" name="email"></p>
+                <p>URL <input type="url" name="url"></p>
+                <p>전화번호 <input type="tel" name="tel"></p>
+                <p>숫자 <input type="number" name="num" min="1" max="10" step="2"></p>
+                <!-- min과 max가 없으면 일반 text처럼 입력할 수 있음 -->
+
+                <hr>
+                <p>범위 <input type="range" name="range" min="2" max="6" step="2" value = "2"></p>
+                <p>시간 <input type="time" name="time"></p>
+                <p>날짜 <input type="date" name="date"></p>
+                <p>날짜시간 <input type="datetime-local" name="datetime"></p>
+                <p>월 <input type="month" name="month" min="2024-10" max="2025-09"></p>
+                <p>주 <input type="week" name="week"></p>
+
+                <!--
+                    placeholder는 입력해야 할 포맷의 정보만 줌
+                    value는 기본 입력값
+                -->
+                <button>전송</button>
+            </fieldset>
+        </form>
+    </body>
+</html>
