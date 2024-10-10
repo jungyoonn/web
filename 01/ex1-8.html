@@ -7,9 +7,38 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
     </head>
     <body>
+        <h3>target</h3>
+        <!-- 현재 탭에서 열기 -->
+        <a href="https://www.goole.com" target="_self" title="구글 링크">구글</a>
+        <!-- 새 탭에서 열기 -->
+        <a href="https://www.goole.com" target="_blank" title="구글 새 창 링크">구글</a>
+
         <!-- 외부 링크, 내부 링크, 특수 링크 -->
+         <h3>특수 링크</h3>
          <a href="mailto:sophia76256@gmail.com">메일 보내기</a>
          <a href="tel:010-5191-9852">전화 걸기</a>
          <a href="javascript:alert('hello world')">JS 기능 수행</a>
-    </body>
+
+         <hr>
+
+         <h3>외부 링크</h3>
+         <a href="https://www.naver.com">네이버</a>
+         <a href="ex1-4.html">ex1-4.html</a>
+         <!-- ../ 는 상위 경로 -->
+         <a href="../intro.html">intro.html</a>
+
+         <!-- 
+            경로
+            -- 절대경로 :  프로토콜 포함
+            -- 상대경로 : 
+                / >> root의 위치
+                ./ >> 현재 위치 (보통 생략)
+                ../ >> 이전 위치
+         -->
+        <hr>
+        <h3 id = "top">내부 링크</h3>
+        <p>대한민국의 경제질서는 개인과 기업의 경제상의 자유와 창의를 존중함을 기본으로 한다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다.</p>
+        <p>모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다. 정당의 설립은 자유이며, 복수정당제는 보장된다. 국회는 의원의 자격을 심사하며, 의원을 징계할 수 있다.</p>
+        
+        </body>
 </html>
