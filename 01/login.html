@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+    </head>
+    <body>
+        <!-- 테이블을 사용하면 이전의 예제보다 줄이 잘 맞아서 보기에 좋다 -->
+        <form>
+            <table>
+                <tr>
+                    <!-- 라벨 태그로 감쌀 때 라벨에는 for을, input 태그에는 id를 준다 -->
+                    <th><label for="id">아이디</label></th>
+                    <td><input type="text" name="id" id="id" tabindex="1"></td>
+                    <td rowspan="2"><button tabindex="3">로그인</button></td>
+                </tr>
+                <tr>
+                    <th><label for="pw">비밀번호</label></th>
+                    <td><input type="password" name="pw" id="pw" tabindex="2"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
