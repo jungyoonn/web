@@ -41,8 +41,22 @@
                 <input type="button" value="버튼" onclick="return confirm('구글로 이동하시겠습니까?') ? location.href = 'https://www.google.com': ''">
                 <button><img src="../img/icon.png" style="width: 15px;">로또당첨</button>
                 <button><i class="fa-solid fa-magnifying-glass" style="color: blue;"></i>검색 </button>
-                <input type="file" multiple>
+                <!-- multiple : 다중 선택 가능 -->
+                 <input type="file" multiple>
             </fieldset>
+            <fieldset>
+                <select multiple name="size2">
+                    <option value="regular">레귤러</option>
+                    <option value="large" selected>라지</option>
+                </select>
+                <hr>
+                <textarea cols="100" rows="10" readonly>
+                    이용 약관
+                    1. 어쩌고
+                    2. 저쩌고
+                </textarea>
+            </fieldset>
+            <!-- autocomplete를 off 하면 자동 저장 기능이 꺼짐 -->
         </form>
     </body>
 </html>
