@@ -16,6 +16,8 @@
                 word-wrap: break-word;
             }
             .white-space p:nth-child(2) {
+                overflow: hidden;
+                text-overflow: ellipsis;
                 white-space: nowrap;
             }
             .white-space p:nth-child(3) {
@@ -24,7 +26,10 @@
             .white-space p:nth-child(4) {
                 white-space: pre-wrap;
             }
+            /* 스크롤 */
             .white-space p:nth-child(5) {
+                height: 100px;
+                overflow-y: scroll;
                 white-space: pre-line;
             }
             /* 
