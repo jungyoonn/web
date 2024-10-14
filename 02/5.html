@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            * { font-family: 굴림; }
+            .btn-cancel-01 {}
+            .btn-cancel-02 {}
+            .btn-cancel-03 {}
+            [class|='btn-cancel'] {}
+
+            [title] { color: red; }
+            [title='write'] { text-decoration: line-through; }
+            [title*='write'] { background: green; }
+
+            /* write 라는 단어가 포함된 title 속성 선택 (구분자 : -) */
+            [title|='write'] { text-indent: 100px; }
+            /* write 라는 단어가 포함된 title 속성 선택 (구분자 : 공백) */
+            [title~='write'] {font-size: 3em;}
+
+            /* 가상 클래스 */
+            a:link { color: green; }
+            a:visited { color:aqua; }
+            a:hover { color : brown; }
+            a:active { color: orange; }
+            a:focus { color: deeppink; }
+
+            /* 가상 요소 */
+            /* 첫 번째 요소, 마지막 요소, n번째 자식, n번째 타입, 이전, 이후 */
+            div :first-child { color: red; }
+            div :last-child { color: blue; }
+            /* 자식 중에서 몇 번째 */
+            div :nth-child(2n) { color: green; }
+            /* 타입 중에서 몇 번째 */ 
+            div :nth-of-type(2n) { color: purple; } 
+
+            div p:nth-of-type(3) { color: orange; }
+            div p:nth-last-child(odd) { color: deeppink; }
+
+            p::before {content: '접두사';}
+            p::after { content: '접미사'; }
+
+            /* div.cls#id {  } */
+            /* OS의 스타일 ex) 고대비 */
+            /* 사용자의 스타일 */
+            /* 브라우저 기본 스타일 */
+        </style>
+    </head>
+    <body>
+        <h3 title="header">제목</h3>
+        <p title="write addr">주소록 작성</p>
+        <p title="write-tel">전화번호 작성</p>
+        <p title="write">건강기록부 작성</p>
+        <p class="write">금전출납부 작성</p>
+
+        <p><a href="#">링크</a></p>
+
+        <div>
+            <h1>대 제목</h1>
+            <p>문단1</p>
+            <p>문단2</p>
+            <p>문단3</p>
+            <p>문단4</p>
+            <p>문단5</p>
+            <p>문단6</p>
+        </div>
+    </body>
+</html>
