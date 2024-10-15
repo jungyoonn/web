@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            .mx-auto { margin-left: auto; margin-right: auto; }
+            body { margin: 0; text-align: center;}
+            .img-wrap { width: 1920px; border: 1px solid; }
+            img { width: 100%; max-width: 700px; }
+            .box { width: 100px; height: 100px; background: red; 
+                /* display: inline-block;  */
+
+                /* margin 값을 auto로 설정하면 가질 수 있는 최대의 margin을 갖게 된다 */
+                /* margin: 20px auto 40px auto; */
+
+                /* 
+                    인라인 레벨의 정렬 : text-align
+                    블록 레벨의 정렬 : margin: auto
+                    margin은 부모 관계가 아닌 형제 관계일 때 쓰고
+                    padding은 부모 관계일 때 쓴다
+                */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div class="img-wrap"> -->
+            <!-- 반응형으로 움직임 -->
+            <img src="img/bg_size.png">
+        <!-- </div> -->
+
+        <hr>
+        <div class="box box1 mx-auto"></div>
+        <div class="box box1 mx-auto"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+        <div class="box box1"></div>
+    </body>
+</html>
