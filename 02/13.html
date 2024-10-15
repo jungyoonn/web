@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            /* 
+                overflow hidden : 넘치는 콘텐츠를 숨김
+                auto : 넘칠 때만 스크롤바 생성
+                scroll : 넘치치 않아도 스크롤바를 생성 (x, y 값 각각 부여 가능)
+                visible : 넘치는 콘텐츠를 그대로 노출
+            */
+            .like-naver { width: 98px; overflow: hidden;}
+            .like-naver a img { transition: transform .2s; }
+            .like-naver a:hover img { transform: scale(1.1); }
+            .like-naver img { width: 98px; }
+        </style>
+    </head>
+    <body>
+        <div class="like-naver">
+            <a href="#">
+                <img src="https://s.pstatic.net/shopping.phinf/20241010_11/8c6c1ea3-7ced-4f79-9e92-e3a9baae129c.jpg?type=f294_378">
+            </a>
+        </div>
+    </body>
+</html>
