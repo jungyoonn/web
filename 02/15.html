@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            li { display: inline; }
+            li a { display: inline-block; width: 20px; height: 40px;
+                background: url('https://www.google.com/images/nav_logo321.webp') -74px 0;
+                background-size: 167px;
+                text-indent: -9999px;
+            }
+            li a:hover {
+                background-position-x: -53px;
+            }
+            li span.start { display: inline-block; width: 28px; height: 40px;
+                background: url('https://www.google.com/images/nav_logo321.webp') -24px 0;
+                background-size: 167px;
+                text-indent: -9999px;
+            }
+            li span.last {
+                display: inline-block; width: 71px; height: 40px;
+                background: url('https://www.google.com/images/nav_logo321.webp') -96px 0;
+                background-size: 167px;
+                text-indent: -9999px;
+            }
+
+            /* 
+                linear-gradient(방향, 컬러스톱, [컬러스톱, ...])
+            */
+
+            /* 90도 방향으로 좌에서 우로 */
+            body { background: linear-gradient(90deg, white 70%, black); }
+            div:not(.multi-background) { height: 50px; }
+            div { height: 50px; }
+            /* 반복 gradient */
+            .linear-repeat { background: repeating-linear-gradient(45deg, white 20px, black 40px); }
+            /* 단색 패턴과 그라데이션 패턴 */
+            .linear-repeat-pattern { background: repeating-linear-gradient(45deg, yellow 0, white 20px, black 20px, black 40px); }
+            /* at 뒤에 원 중심의 위치를 설정할 수 있다 (기본값은 타원) */
+            .radial { height: 200px; width: 100px; background: radial-gradient(circle at 10px 50%, white, rgb(13, 13, 24)); }
+            
+            .multi-background { width: 150px; }
+            .multi-background div { height: 150px; border: 1px solid;}
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><span class="start">g</span></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><span class="last">gle</span></li>
+        </ul>
+        <div class="linear-repeat"></div>
+        <div class="linear-repeat-pattern"></div>
+        <div class="radial"></div>
+
+        <div class="multi-background">
+            <div></div>
+        </div>
+    </body>
+</html>
