@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            .box {
+                width: 300px; 
+                height: 150px; 
+                border: 3px solid blue;
+                border-width: 5px 10px;
+                border-color: red green orange;
+                border-style: solid dashed dotted double;
+            }
+
+            /* 말풍선 만들기 */
+            .wrap {background-color: rgb(245, 241, 202); padding: 30px;}
+            .balloon {
+                display: inline-block; 
+                padding: 30px; 
+                color: #eee;
+                max-width: 400px;
+                background-color: #222;
+                position: relative;
+                margin: 80px;
+            }
+
+            /* 삼각형 만들기 */
+            .balloon::after {
+                position: absolute;
+                bottom: -34px;
+
+                display: block;
+                content: '';
+
+                width: 0;
+                border: 20px solid transparent;
+                /* border-color: red gray green orange; */
+                border-top: 25px solid #222;
+                margin-left: 50px;
+                transform: skewX(-30deg);
+            }
+            .me::after {
+                transform: skewX(30deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <div class="wrap">
+            <div class="balloon">가나다라가나다라가나다라가나다라가나다라가나다라가나다라가나다라가나다라가나다라가나다라가나다라</div>
+            <div class="balloon">추가 텍스트</div>
+            <div class="balloon me">내가 쓴 텍스트</div>
+        </div>
+    </body>
+</html>
