@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            .box {width: 100px; height: 100px;}
+            .box1 {
+                background-color: red;
+                border-radius: 10px;
+            }
+            .box2 {
+                background-color: blue;
+                border-radius: 10px 30px 50px 70px;
+            }
+            .box3 {
+                background-color: green;
+                border-top-right-radius: 20px 50px;
+            }
+            .box4 {
+                background-color: deeppink;
+                border-radius: 50%;
+                padding: 30px;
+                border: 20px solid red;
+            }
+            .border-image {
+                width: 600px;
+                height: 50px;
+                padding: 15px;
+                border: 10px solid transparent;
+            }
+            .round {
+                border-image: url('img/border.png') 27 round;
+                -webkit-border-image: url('img/border.png') 27 round;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="border-image round">
+            테두리 이미지 텍스트
+        </div>
+    </body>
+</html>
