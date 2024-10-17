@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+        <script src='main.js'></script>
+        <style>
+            body {height: 5000px;}
+            /* 부모에게 relative를 주면 자식 요소를 가둔다 (부모 안에서 100px 떨어진 거리에 배치됨) */
+            .box-wrap {width: 300px; height: 300px; background-color: rgb(218, 247, 247); position: relative;}
+            .box {width: 100px; height: 100px;}
+            .box1 {background-color: rgb(206, 220, 233); position: relative; top: 50px; left: 50px;}
+            /* ablolute를 주면 원래 흐름의 밖으로 가게 된다 */
+            /* z-index의 값에 따라 요소가 앞으로 올지 뒤로 올지 결정됨 (-1은 맨 밑) */
+            .box2 {background-color: rgb(183, 200, 214); position: absolute; z-index: 0; top: 0; right: 100px;}
+            /* fixed를 주면 스크롤을 움직여도 요소가 따라다닌다 */
+            .box3 {background-color: rgb(152, 166, 179); position: fixed; right: 0; bottom: 0;}
+        </style>
+    </head>
+    <body>
+        <div class="box-wrap">
+            <div class="box box1">1</div>
+            <div class="box box2">2</div>
+            <div class="box box3">3</div>
+        </div>
+    </body>
+</html>
