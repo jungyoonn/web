@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>21</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        .wrap {
+            padding: 20px;
+            background: black;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: whitesmoke;
+            transition: all 2s cubic-bezier(1, -1, 0, 2.33) .3s;
+            /* all  태그를 사용할 경우 트랜지션 전체를 한번에 바꿔버림.*/
+            transition-property: transform, background-color, width;
+            /* 어라, 위에가 3개인데 아래가 2개? 보더값처럼 반대방향은 복사해서 알아서 써짐! */
+            /* 트랜지션의 핵심은 에니메이션처럼 보이지만 사용자의 인터랙션이 필요하다는 것. */
+            transition-duration: 5s, 1s;
+        }
+
+        .wrap:hover .box {
+            transform: translateX(900px);
+            background-color: yellow;
+            width: 200px;
+            /* 만약 양방향 트랜지션을 원하지 않는다면 트랜지션 관련 내용을 원 속성이 아닌 hover에 넣으면 됨. */
+        }
+
+        @keyframes hos {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        #customProgressWrap{
+            width: 500px;
+            height: 50px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+        .Bar {
+            background: green;
+            width: 0;
+            height: 50px;
+            animation-name: progress;
+            animation-duration: 30s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes progress {
+            0% {width: 0;}
+            10% {width: 10%;}
+            20% {width: 20%;}
+            30% {width: 40%;}
+            40% {width: 65%;}
+            50% {width: 75%;}
+            90% {width: 95%;}
+            95% {width: 99%;}
+            100% {width: 100%;}
+        }
+        #hos {
+            /* 시공의 폭풍은 정말 최고야!! */
+            animation-name: hos;
+            animation-duration: 0.1s;
+            animation-timing-function: linear;
+            animation-iteration-count: 300;
+            /* animation-direction: alternate; */
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.daum.co.kr" target="_parent"> DAUM </a>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+    <img id="hos" alt="히오스 "
+        src="https://i.namu.wiki/i/1UyulCcDF0WEolDrlrXOvqIS-n5kzz-jrvid3hZbDW9wc7yuHZ9LAYlSIgrkydW5qwCj92gPnF20zP2e_bt2PQ.webp">
+    <!-- 강사님꺼 프로그래스바 -->
+    <hr>
+    <h4>Progress Bar</h4>
+    <div id="customProgressWrap" class="">
+        <div id="customProgress" class="Bar">
+
+        </div>
+    </div>
+</body>
+
+</html>
