@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>20</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        .box {
+            display: inline-block;
+            width: 300px;
+            padding: 20px;
+            border-radius: 55px 10px / 10px 55px;
+            background-color: #ace;
+            box-shadow: 5px 5px 5px darkslateblue, 10px 10px 10px skyblue;
+            /* 쉼표를 통해 추가 가능, textshadow 효과와 비슷함 */
+            overflow: auto;
+            resize: both;
+        }
+        textarea {
+            resize: vertical;
+        }
+        /* 호리젠탈, 버티칼, both, none 옵션으로 x y 축 조정 여부를 구분한다 */
+        .trans:hover img {transform: translate(10px, 50px);}
+        .wrap {display: inline-block; border: 3px solid; perspective: 20px;}
+        .rotate.hover img {transform:rotate(30deg);}
+        .rotateX.hover img {transform:rotateX(135deg);} 
+        .rotateY.hover img {transform:rotateX(135deg);} 
+        /* x축 값을 조정하는 것으로 가능 */
+        .scale:hover img {transform: scale(2, 0.5);}
+        .skew:hover img {transform: skew(30deg, 20deg);}
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트간단한 텍스트
+    </div>
+    <hr>
+    <textarea name="" id="" cols="50"></textarea>
+
+    <hr>
+    <div class="wrap rotate">
+        <img src= https://i.namu.wiki/i/3fwIK9kdOIQfbX1pXoq-k6hEvXqKrRzcXNYWltP3-bGovmnRVWQbFAv8xscyKOHMt3x_Q77FuJt4RH_WIKUoFvYgquYUJj_sAs10kRjyOhrGAplR87xBbbqBvKlMhQ6EgdfE6f6wW9if4nbdBNy_Zg.svg>
+    </div>
+    <div class="wrap rotateX">
+        <img src= https://i.namu.wiki/i/3fwIK9kdOIQfbX1pXoq-k6hEvXqKrRzcXNYWltP3-bGovmnRVWQbFAv8xscyKOHMt3x_Q77FuJt4RH_WIKUoFvYgquYUJj_sAs10kRjyOhrGAplR87xBbbqBvKlMhQ6EgdfE6f6wW9if4nbdBNy_Zg.svg>
+    <div class="wrap rotateY">
+        <img src= https://i.namu.wiki/i/3fwIK9kdOIQfbX1pXoq-k6hEvXqKrRzcXNYWltP3-bGovmnRVWQbFAv8xscyKOHMt3x_Q77FuJt4RH_WIKUoFvYgquYUJj_sAs10kRjyOhrGAplR87xBbbqBvKlMhQ6EgdfE6f6wW9if4nbdBNy_Zg.svg>
+    </div>
+    <div class="wrap trans">
+        <img src=https://i.namu.wiki/i/3fwIK9kdOIQfbX1pXoq-k6hEvXqKrRzcXNYWltP3-bGovmnRVWQbFAv8xscyKOHMt3x_Q77FuJt4RH_WIKUoFvYgquYUJj_sAs10kRjyOhrGAplR87xBbbqBvKlMhQ6EgdfE6f6wW9if4nbdBNy_Zg.svg>
+    </div>
+    <div class="wrap scale">
+        <img src= https://i.namu.wiki/i/3fwIK9kdOIQfbX1pXoq-k6hEvXqKrRzcXNYWltP3-bGovmnRVWQbFAv8xscyKOHMt3x_Q77FuJt4RH_WIKUoFvYgquYUJj_sAs10kRjyOhrGAplR87xBbbqBvKlMhQ6EgdfE6f6wW9if4nbdBNy_Zg.svg>
+    </div>
+    <div class="wrap skew">
+        <img src= https://i.namu.wiki/i/3fwIK9kdOIQfbX1pXoq-k6hEvXqKrRzcXNYWltP3-bGovmnRVWQbFAv8xscyKOHMt3x_Q77FuJt4RH_WIKUoFvYgquYUJj_sAs10kRjyOhrGAplR87xBbbqBvKlMhQ6EgdfE6f6wW9if4nbdBNy_Zg.svg>
+    </div>
+</body>
+
+</html>
