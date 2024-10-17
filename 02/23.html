@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+        <script src='main.js'></script>
+        <style>
+            /* 
+                float : 요소를 왼쪽 혹은 오른쪽에 배치하고 나머지 콘텐츠는 그 주변을 흐르도록 함 
+                left : 왼쪽부터 1, 2, 3 배치
+                right : 오른쪽부터 1, 2, 3 배치
+            */
+            .box, img {border: 1px solid;}
+            .box {width: 500px; padding: 10px;}
+            img {margin: 20px; float: left;}
+
+            .float-wrap {width: 500px; border: 1px solid;}
+            .float-box {
+                width: 100px; 
+                height: 100px; 
+                background-color: rgba(231, 190, 190, 0.795);
+                /* display: inline-block; */
+                /* float: left; */
+                text-align: center;
+            }
+            .float-left {float: left;}
+            .float-right {float: right;}
+            .clear-right {clear: both;}
+            .clearfix::after {
+                display: block;
+                content: '';
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <img src="img/bg_animation.png">
+            <p>
+                지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다. 국가는 농지에 관하여 경자유전의 원칙이 달성될 수 있도록 노력하여야 하며,
+                농지의 소작제도는 금지된다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다. 국가는 농지에 관하여 경자유전의 원칙이 달성될 수 있도록 노력하여야 하며,
+                농지의 소작제도는 금지된다. 지방의회의 조직·권한·의원선거와 지방자치단체의 장의 선임방법 기타 지방자치단체의 조직과 운영에 관한 사항은 법률로 정한다. 국가는 농지에 관하여 경자유전의 원칙이 달성될 수 있도록 노력하여야 하며,
+                농지의 소작제도는 금지된다.
+            </p>
+        </div>
+
+        <div class="float-wrap clearfix">
+            <div class="float-box float-right">box1</div>
+            <div class="float-box float-right">box2</div>
+            <div class="float-box float-left">box3</div>
+            <div class="float-box float-left">box4</div>
+            <!-- <div class="float-box">box5</div> -->
+        </div>
+    </body>
+</html>
