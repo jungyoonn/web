@@ -13,9 +13,35 @@
             alert("알림");
 
             console.log("로그입니다");
+
+            // ECMAscript 5    HTML4 호환
+            // ECMA 6 2015     HTML5 호환
+
+            // data type
+            // number, string, boolean
+            // object, function, undefined, symbol
+            var num = 10;
+            num = true;
+            var str = 'AB';
+
+            var un;
+            // 둘 다 빈 객체 선언이다
+            var obj = new Object();
+            var obj2 = {};
+            // 변수의 타입은 할당 시점에 결정됨
+            // cf java) String str = "abcd";
         </script>
+        <script src="01.js"></script>
     </head>
     <body>
-        
+        <script>
+            console.log(num, un); // un은 미정의된 값(undefined)이라고 출력됨
+            // console.log(num2); // 선언조차 되지 않았기 때문에 오류 메시지가 뜸
+            console.log(("35" + 2) / 2);
+            // "35" + 2 = 문자열 "352"
+            // !("35" + 2) = 참거짓 여부를 따지기 때문에 !true = false
+            // ㄴ 빈 문자열을 제외하고 전부 true 값이다
+            console.log(obj, obj2);
+        </script>
     </body>
 </html>
