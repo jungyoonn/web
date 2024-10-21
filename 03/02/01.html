@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+    </head>
+    <body>
+        <h3 id="time"></h3>
+        <script>
+            // setInterval
+            var id = document.getElementById("time");
+            var retInter = setInterval(() => {
+                id.innerHTML = new Date();
+            }, 1000);
+
+            // setTimeout
+            setTimeout(function() {
+                clearInterval(retInter);
+            }, 10000); // 10초 지나면 시계 멈춤
+
+            // setTimeout을 이렇게로도 표현할 수 있다
+            var anonyFunc = function() {
+                clearInterval(retInter);
+            };
+            setTimeout(anonyFunc, 10000);
+        </script>
+    </body>
+</html>
