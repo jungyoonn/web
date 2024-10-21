@@ -42,3 +42,27 @@ function f1() {
     f2();
 } 
 f1();
+
+// let
+var a = 10;
+var a = 20; // 같은 변수를 또 선언해도 오류 안 남
+
+// let num = 20;
+// let num = 20; // 같은 변수를 또 선언하면 오류 남
+
+// let은 호이스팅이 불가능하다
+
+for(let s = 0; s < 10; s++) {
+    console.log(s);
+}
+// console.log(s); // var와 다르게 오류가 난다
+
+let fn = function(x) {
+    console.log("hello " + x);
+}
+fn("world");
+
+// final double PI = Math.PI;
+// const를 미리 선언만 해 두고 싶을 땐 const PI = undefined;
+const PI = Math.PI;
+// PI = 3.14; 처럼 값의 변경이 불가능하다
