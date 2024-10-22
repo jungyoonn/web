@@ -26,3 +26,23 @@ Array.prototype.remove = function(index) {
 const arr2 = [1, 2, 3, 4, 5];
 arr2.remove(3);
 console.log(arr2);
+
+// for in
+for(let i in s1) {
+    if(i == 'name') {
+        s1[i] = '소똥이';
+    }
+    console.log(i, s1[i]);
+}
+
+for(let i in arr) {
+    console.log(i, arr[i]);
+}
+
+// in operator
+console.log('name' in s1); // true
+console.log('addr' in s1); // false
+
+for(let i in "abcde") {
+    console.log(i, "abcde"[i]);
+}
