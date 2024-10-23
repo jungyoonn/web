@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+    </head>
+    <body>
+        <input id="linkAddr" value="https://github.com/jungyoonn">
+        <button id="btn">이동</button>
+        <script>
+            document.getElementById("btn").addEventListener("click", function() {
+                const input = document.getElementById("linkAddr");
+                confirm(input.value + "의 위치로 이동하시겠습니까?") && (location.href = input.value);
+            });
+        </script>
+    </body>
+</html>
