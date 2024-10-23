@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script>
+            let a = 10;
+            function f() {
+
+            }
+            for(let i in window) {
+                document.write("<p>" + i + " ::::: " + window[i])
+            }
+            const winProxy = window.open('cal.html', '', 'width=600, height=600, top=100'); // 새 창 열기
+            winProxy.document.write("내용 바꾸기")
+            // moveTo : 절대위치
+            // moveBy : 상대위치
+            winProxy.moveTo(10, 10);
+            setInterval(function() {
+                winProxy.moveBy(10, 10);
+            }, 500);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
