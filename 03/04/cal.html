@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script>
+            const day = ['일', '월', '화', '수', '목', '금', '토']
+            const lastDates = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            let now = new Date();
+            now.setMonth(4);
+            now.setDate(1);
+            const firstDay = now.getDay();
+            let lastDate = lastDates[now.getMonth()];
+            const year = now.getFullYear();
+            // 윤년 계산
+            if(now.getMonth() == 1 && year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                lastDate = 29;
+            }
+
+            // 달력 기본 틀
+
+            // let str = `<table>
+            // <tr>
+            //     <th>일</th>
+            //     <th>월</th>
+            //     <th>화</th>
+            //     <th>수</th>
+            //     <th>목</th>
+            //     <th>금</th>
+            //     <th>토</th>
+            // </tr>
+            // <tr>`;
+            
+            // for(let i = 1; i <= 31; i++) {
+            //     str += `<td>${i}</td>`;
+            //     if(i % 7 == 0) {
+            //         str += `</tr><tr>`;
+            //     }
+            //     if(i == 31) {
+            //         str += `</tr>`;
+            //     }
+            // }
+            // str += `</table>`;
+
+            // document.write(str);
+
+            let str2 = `
+            <div>
+            <table>
+                <caption><h2>${now.getFullYear()}년 ${now.getMonth() + 1}월</h2></caption>
+            <tr>`;
+                
+            for(let val of day) {
+                str2 += `<th>${val}</th>`;
+            }
+            str2 += '</tr>';
+
+            const endPoint = parseInt(((lastDate + firstDay) + 6) / 7) * 7 - firstDay;
+            for(let i = 0; i < firstDay; i++) {
+                str2 += `<td></td>`;
+            }
+            for(let j = 1; j <= endPoint; j++) {
+                if(j > lastDate) {
+                    str2 += `<td></td>`;
+                    continue;
+                }
+                str2 += `<td class='over'>${j}</td>`;
+                if(j % 7 == (7 - firstDay) % 7) {
+                    str2 += `</tr><tr>`;
+                }
+                if(j > lastDate) {
+                    str2 += `<td></td>`;;
+                }
+            }
+            str2 += `</tr></table></div>`;
+            document.write(str2)
+        </script>
+        <style>
+            div {
+                background-color: #fffdf7;
+                /* background-color: #f8f7ff; */
+                width: 500px;
+                margin: 0 auto;
+                box-shadow: 3px 3px 4px rgb(233, 226, 210);
+                /* box-shadow: 3px 3px 4px rgb(210, 210, 233); */
+            }
+            h2 {font-size: 19px;}
+            th {border-bottom: 1px solid #222;}
+            /* table, th, td {border: 1px solid #222;} */
+            table {border-collapse: collapse; margin: 0 auto;}
+            th, td {padding: 18px; text-align: center;}
+            tr > :first-child {color: rgb(209, 139, 139);}
+            tr > :last-child {color: rgb(129, 129, 185);}
+            .over:hover { 
+                padding: 0;
+                border-radius: 10px;
+                background-color: #f3f0df; 
+                /* background-color: #fffefa;  */
+                color: rgb(206, 185, 77);
+                box-shadow: 3px 3px 4px #bba76a;
+                font-size: 20px;
+            }
+        </style>
+    <body>
+        <!-- <div id="cal"></div> -->
+        <!-- <table>
+            <tr>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+        </table> -->
+    </body>
+</html>
