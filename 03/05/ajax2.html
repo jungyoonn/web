@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script>
+            function f() {
+                //xmlHttpRequest 객체 생성
+                const xhr = new XMLHttpRequest();
+
+                // Method, URL, 비동기 여부
+                xhr.open('GET', 'student.json');
+                xhr.send();
+
+                xhr.onload = function() {
+                    // Server Status : 200은 성공 , 404 Not Found
+                    /*
+                        클라이언트 -> 서버 :  요청
+                        서버 -> 클라이언트 : 응답
+
+                        상태
+                        0     1         2           3         4
+                            요청 중   요청 완료   응답 중   응답 완료
+                    */
+                    console.log(xhr);
+                    if(xhr.status === 200 && xhr.readyState == 4) {
+                        console.log(xhr.response); //String 타입이다
+                        // String 타입으로 가져온 json을 파싱
+                        const students = JSON.parse(xhr.response);
+                        console.log(students);
+                        
+                        // 개별 student 자르기
+                        let str = "";
+                        for(let s of students) {
+                            str += "<tr>"
+                            str += `<td>${s.no}</td>`;
+                            str += `<td>${s.name}</td>`;
+                            str += `<td>${s.score}</td>`;
+                            str += "</tr>";
+                        }
+                        console.log(str);
+
+                        // // table 태그에 추가하는 두 가지 방법
+                        document.querySelector("table").innerHTML += str;
+                        document.getElementsByTagName("table")[0].innerHTML += str;
+                    } else {
+                        console.log("ajax 실패");
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="f()">불러오기</button>
+        <table>
+            <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>점수</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>
