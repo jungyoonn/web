@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script>
+            window.onload = function () {
+                // querySelector : 선택된 요소 중 첫 번째 요소 하나만 선택함
+                const list1 = document.querySelector("#box1 > ul > li");
+                // querySelectorAll : 모든 요소를 선택하여 배열 생성
+                const list2 = document.querySelectorAll("#box2 > ul > li");
+                console.log(list1);
+                console.log(list2);
+
+                list1.style.backgroundColor = 'lavender';
+                list1.onclick = function () {
+                    alert('hi');
+                }
+                const colors = ['aliceblue', 'deeppink', 'purple'];
+                for(const key in list2) {
+                    console.log(key, list2[key]);
+                    if(list2[key].style){
+                        list2[key].style.color = colors[key];
+                    }
+                }
+
+                // querySelector를 쓰지 않으면 코드가 길어지고 복잡해진다
+                document.getElementById("box2").getElementsByTagName("ul")[0].getElementsByTagName("li");
+        
+                // createElement() : 일반 Element 생성 메서드
+                // appendChild() : 제일 마지막 자식으로 들어간다
+                // createTextNode() : 텍스트를 생성하는 메서드
+                const p = document.createElement("p");
+                const txt = document.createTextNode("hello world");
+                p.appendChild(txt);
+                p.id = 'myP';
+                p.className = 'color-red';
+                p.title = '동적 생성 태그';
+                list1.appendChild(p);
+
+                const img = document.createElement("img");
+                img.src = 'https://i.namu.wiki/i/bcV3sFMYodh3RpJilvbkAt8u56EBYB8ipLCmmcQ16E7-dBSB2D0WcE19yI9WNTOqBlz8Ce9asHFdIVb1ut4Crw.webp';
+
+                document.querySelector("body").appendChild(img);
+
+                // setAttribute() : 요소의 속성을 set
+                p.setAttribute("hello", "안녕");
+                p.setAttribute("data-no", 1);
+                // 속성 제거 (본래 있던 속성만 제거 가능)
+                delete p.title;
+                // 커스텀 속성은 removeAttribute() 사용
+                p.removeAttribute("title")
+                list1.appendChild(p);
+            }
+        </script>
+        <style>
+            .color-red {color: rgb(165, 111, 220);}
+        </style>
+    </head>
+    <body>
+        <div id="box1">
+            <ul>
+                <li>내용1</li>
+                <li>내용2</li>
+                <li>내용3</li>
+            </ul>
+        </div>
+        <div id="box2">
+            <ul>
+                <li>내용4</li>
+                <li>내용5</li>
+                <li>내용6</li>
+            </ul>
+        </div>
+    </body>
+</html>
