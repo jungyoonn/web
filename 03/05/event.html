@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script>
+            window.onload = function() {
+                const btn = document.querySelector("button:nth-child(2)");
+                btn.onclick = function() {
+                    console.log(this.innerText);
+                }
+                btn.onclick = function() {
+                    alert(this.innerText);
+                    // 이벤트를 삭제하려면 (중복 발생을 안 하게 하려면)
+                    this.onclick = null;
+                }
+
+                // onclick은 이벤트를 덮어씌우지만 
+                // addEventListener(click)은 중첩이 가능하다
+                btn.addEventListener('click', function() {
+                    console.log(this.innerText);
+                });
+
+                const fn = function(e) {
+                    console.log(event, e); // e === event 둘이 같은 객체임
+                    // console.log(event.target == this == btn);
+                    // target : 이벤트를 발생시킨 객체를 반환하는 프로퍼티
+                    console.log(this.innerText);
+                    btn.removeEventListener('click', fn);
+                }
+                btn.addEventListener('click', fn);
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="console.log(this.innerText)">인라인</button>
+        <button>기본</button>
+    </body>
+</html>
