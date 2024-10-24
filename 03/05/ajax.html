@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script>
+            /*
+                네임스페이스 : student / 태그 : name
+                <student:name>
+            */
+
+            //xmlHttpRequest 객체 생성
+            const xhr = new XMLHttpRequest();
+
+            // Method, URL, 비동기 여부
+            xhr.open('GET', 'student.xml');
+            xhr.send();
+
+            xhr.onload = function() {
+                // Server Status : 200은 성공 , 404 Not Found
+                /*
+                    클라이언트 -> 서버 :  요청
+                    서버 -> 클라이언트 : 응답
+
+                    상태
+                    0     1         2           3         4
+                         요청 중   요청 완료   응답 중   응답 완료
+                */
+                console.log(xhr);
+                if(xhr.status === 200 && xhr.readyState == 4) {
+                    console.log(xhr.response); //String 타입이다
+
+                    // String 타입으로 가져온 xml을 파싱
+                    const xmlString = xhr.response;
+                    const xmlParser = new DOMParser();
+                    const xmlDoc = xmlParser.parseFromString(xmlString, "text/xml");
+                    console.log(xmlDoc);
+
+                    // 개별 student 자르기
+                    const students = xmlDoc.getElementsByTagName("student");
+                    let str = "";
+                    for(let i = 0; i < students.length; i++) {
+                        str += "<tr>"
+                        str += `<td>${students[i].querySelector("no").textContent}</td>`;
+                        str += `<td>${students[i].querySelector("name").textContent}</td>`;
+                        str += `<td>${students[i].querySelector("score").textContent}</td>`;
+                        str += "</tr>";
+                    }
+                    console.log(str);
+
+                    // table 태그에 추가하는 두 가지 방법
+                    document.querySelector("table").innerHTML += str;
+                    document.getElementsByTagName("table")[0].innerHTML += str;
+                } else {
+                    console.log("ajax 실패");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>점수</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>
