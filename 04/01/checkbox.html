@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-end my-3">
+                <button class="btn btn-primary">삭제</button>
+                <button class="btn btn-danger d-none" disabled>확인</button>
+            </div>
+            <ul>
+                <li class="form-check border border-0 border-bottom border-3 border-info mb-3"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate text-center"><strong>제목</strong></p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">사법권은 법관으로 구성된 법원에 속한다. 중앙선거관리위원회는 법령의 범위안에서 선거관리·국민투표관리 또는 정당사무에 관한 규칙을 제정할 수 있으며, 법률에 저촉되지 아니하는 범위안에서 내부규율에 관한 규칙을 제정할 수 있다. 각급 선거관리위원회는 선거인명부의 작성등 선거사무와 국민투표사무에 관하여 관계 행정기관에 필요한 지시를 할 수 있다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">공무원의 신분과 정치적 중립성은 법률이 정하는 바에 의하여 보장된다. 탄핵소추의 의결을 받은 자는 탄핵심판이 있을 때까지 그 권한행사가 정지된다. 모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다. 의무교육은 무상으로 한다. 국가는 평생교육을 진흥하여야 한다. 헌법재판소에서 법률의 위헌결정, 탄핵의 결정, 정당해산의 결정 또는 헌법소원에 관한 인용결정을 할 때에는 재판관 6인 이상의 찬성이 있어야 한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">대통령은 국무총리·국무위원·행정각부의 장 기타 법률이 정하는 공사의 직을 겸할 수 없다. 국가는 균형있는 국민경제의 성장 및 안정과 적정한 소득의 분배를 유지하고, 시장의 지배와 경제력의 남용을 방지하며, 경제주체간의 조화를 통한 경제의 민주화를 위하여 경제에 관한 규제와 조정을 할 수 있다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 대법관은 대법원장의 제청으로 국회의 동의를 얻어 대통령이 임명한다. 감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타 필요한 사항은 법률로 정한다. 대통령은 헌법과 법률이 정하는 바에 의하여 공무원을 임면한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">모든 국민은 통신의 비밀을 침해받지 아니한다. 국가는 법률이 정하는 바에 의하여 재외국민을 보호할 의무를 진다. 모든 국민은 언론·출판의 자유와 집회·결사의 자유를 가진다. 모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 체포·구속·압수·수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 의하지 아니하고는 처벌·보안처분 또는 강제노역을 받지 아니한다.</p></li>
+                <!-- <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 국회의원은 현행범인인 경우를 제외하고는 회기중 국회의 동의없이 체포 또는 구금되지 아니한다. 누구든지 병역의무의 이행으로 인하여 불이익한 처우를 받지 아니한다. 국교는 인정되지 아니하며, 종교와 정치는 분리된다. 재산권의 행사는 공공복리에 적합하도록 하여야 한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">비상계엄하의 군사재판은 군인·군무원의 범죄나 군사에 관한 간첩죄의 경우와 초병·초소·유독음식물공급·포로에 관한 죄중 법률이 정한 경우에 한하여 단심으로 할 수 있다. 다만, 사형을 선고한 경우에는 그러하지 아니하다. 모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">헌법재판소의 장은 국회의 동의를 얻어 재판관중에서 대통령이 임명한다. 국회의 회의는 공개한다. 다만, 출석의원 과반수의 찬성이 있거나 의장이 국가의 안전보장을 위하여 필요하다고 인정할 때에는 공개하지 아니할 수 있다. 모든 국민은 학문과 예술의 자유를 가진다. 제1항의 탄핵소추는 국회재적의원 3분의 1 이상의 발의가 있어야 하며, 그 의결은 국회재적의원 과반수의 찬성이 있어야 한다. 다만, 대통령에 대한 탄핵소추는 국회재적의원 과반수의 발의와 국회재적의원 3분의 2 이상의 찬성이 있어야 한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">국가는 농지에 관하여 경자유전의 원칙이 달성될 수 있도록 노력하여야 하며, 농지의 소작제도는 금지된다. 모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 형사피의자 또는 형사피고인으로서 구금되었던 자가 법률이 정하는 불기소처분을 받거나 무죄판결을 받은 때에는 법률이 정하는 바에 의하여 국가에 정당한 보상을 청구할 수 있다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">국가는 주택개발정책등을 통하여 모든 국민이 쾌적한 주거생활을 할 수 있도록 노력하여야 한다. 대한민국의 국민이 되는 요건은 법률로 정한다. 모든 국민은 헌법과 법률이 정한 법관에 의하여 법률에 의한 재판을 받을 권리를 가진다. 언론·출판에 대한 허가나 검열과 집회·결사에 대한 허가는 인정되지 아니한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">모든 국민은 종교의 자유를 가진다. 이 헌법시행 당시의 대법원장과 대법원판사가 아닌 법관은 제1항 단서의 규정에 불구하고 이 헌법에 의하여 임명된 것으로 본다. 국회는 국무총리 또는 국무위원의 해임을 대통령에게 건의할 수 있다. 대통령은 법률이 정하는 바에 의하여 훈장 기타의 영전을 수여한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">국회는 선전포고, 국군의 외국에의 파견 또는 외국군대의 대한민국 영역안에서의 주류에 대한 동의권을 가진다. 국가는 농·어민과 중소기업의 자조조직을 육성하여야 하며, 그 자율적 활동과 발전을 보장한다. 의원을 제명하려면 국회재적의원 3분의 2 이상의 찬성이 있어야 한다. 국가유공자·상이군경 및 전몰군경의 유가족은 법률이 정하는 바에 의하여 우선적으로 근로의 기회를 부여받는다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">대통령은 제4항과 제5항의 규정에 의하여 확정된 법률을 지체없이 공포하여야 한다. 제5항에 의하여 법률이 확정된 후 또는 제4항에 의한 확정법률이 정부에 이송된 후 5일 이내에 대통령이 공포하지 아니할 때에는 국회의장이 이를 공포한다. 대통령의 임기는 5년으로 하며, 중임할 수 없다. 중앙선거관리위원회는 대통령이 임명하는 3인, 국회에서 선출하는 3인과 대법원장이 지명하는 3인의 위원으로 구성한다. 위원장은 위원중에서 호선한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">대통령은 조국의 평화적 통일을 위한 성실한 의무를 진다. 모든 국민은 고문을 받지 아니하며, 형사상 자기에게 불리한 진술을 강요당하지 아니한다. 제2항과 제3항의 처분에 대하여는 법원에 제소할 수 없다. 대통령의 임기가 만료되는 때에는 임기만료 70일 내지 40일전에 후임자를 선거한다. 누구든지 체포 또는 구속을 당한 때에는 적부의 심사를 법원에 청구할 권리를 가진다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다. 공공필요에 의한 재산권의 수용·사용 또는 제한 및 그에 대한 보상은 법률로써 하되, 정당한 보상을 지급하여야 한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">국가는 과학기술의 혁신과 정보 및 인력의 개발을 통하여 국민경제의 발전에 노력하여야 한다. 헌법개정안이 제2항의 찬성을 얻은 때에는 헌법개정은 확정되며, 대통령은 즉시 이를 공포하여야 한다. 대통령의 선거에 관한 사항은 법률로 정한다. 대한민국은 민주공화국이다. 국가원로자문회의의 의장은 직전대통령이 된다. 다만, 직전대통령이 없을 때에는 대통령이 지명한다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">국가는 국민 모두의 생산 및 생활의 기반이 되는 국토의 효율적이고 균형있는 이용·개발과 보전을 위하여 법률이 정하는 바에 의하여 그에 관한 필요한 제한과 의무를 과할 수 있다. 사면·감형 및 복권에 관한 사항은 법률로 정한다. 모든 국민은 직업선택의 자유를 가진다. 국가안전보장에 관련되는 대외정책·군사정책과 국내정책의 수립에 관하여 국무회의의 심의에 앞서 대통령의 자문에 응하기 위하여 국가안전보장회의를 둔다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">모든 국민은 인간다운 생활을 할 권리를 가진다. 국가는 청원에 대하여 심사할 의무를 진다. 명령·규칙 또는 처분이 헌법이나 법률에 위반되는 여부가 재판의 전제가 된 경우에는 대법원은 이를 최종적으로 심사할 권한을 가진다. 지방자치단체는 주민의 복리에 관한 사무를 처리하고 재산을 관리하며, 법령의 범위안에서 자치에 관한 규정을 제정할 수 있다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 농업생산성의 제고와 농지의 합리적인 이용을 위하거나 불가피한 사정으로 발생하는 농지의 임대차와 위탁경영은 법률이 정하는 바에 의하여 인정된다. 사회적 특수계급의 제도는 인정되지 아니하며, 어떠한 형태로도 이를 창설할 수 없다.</p></li>
+                <li class="form-check"><input class=" form-check-input invisible" type="checkbox"><p class="text-truncate">선거에 관한 경비는 법률이 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 국무회의는 대통령·국무총리와 15인 이상 30인 이하의 국무위원으로 구성한다. 모든 국민은 법 앞에 평등하다. 누구든지 성별·종교 또는 사회적 신분에 의하여 정치적·경제적·사회적·문화적 생활의 모든 영역에 있어서 차별을 받지 아니한다.</p></li> -->
+            </ul>    
+        </div>
+        <script>
+            $("button:eq(1)").click(function() {
+                $(":checkbox:gt(0):checked").parent().remove();
+                $(":checkbox").prop("checked", false);
+            });
+
+            // 반복문을 이용해서 전체 선택 및 확인 버튼 제어
+            function toggleConfirmBtn() {
+                const $chbox = $("input:checkbox:gt(0)");
+
+                let flag = false;
+                let flag2 = true;
+
+                for(let i = 0; i < $chbox.length; i++) {
+                    console.log($chbox[i].checked);
+                    if($chbox[i].checked) {
+                        flag = true;
+                    } else {
+                        flag2 = false;
+                    }
+                }
+                $("button:eq(1)").prop("disabled", !flag);
+                $(":checkbox:first").prop("checked", flag2);
+            }
+            $("button:eq(0)").click(function() {
+                $(this).text(function(i, j, k) {
+                    return j == "삭제" ? "삭제 취소" : "삭제";
+                }).next().toggleClass("d-none");
+
+                $(":checkbox").toggleClass("invisible");
+                
+                $(":checkbox")
+                .filter(":first")
+                .change(function() {
+                    console.log("change!!"); // 확인용 로그
+                    console.log(this.checked); // true
+                    $(":checkbox").prop("checked", this.checked);
+                });
+                // .end()
+                // .change(function() {
+                    //     return !this.checked && $(":checkbox:first").prop("checked", false);
+                    // });
+
+                // 반복문 이용하지 않고 전체 선택 및 확인 버튼 제어
+                $(":checkbox").change(function() {
+                    const $chbox = $("input:checkbox:gt(0)");
+                    $("button:eq(1)").prop("disabled", !($(":checkbox:checked").length));
+                    $(":checkbox:first").prop("checked", !($chbox.length - $chbox.filter(":checked").length));
+                });
+            });
+        </script>
+    </body>
+</html>
