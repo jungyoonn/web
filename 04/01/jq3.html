@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            // end() 이후의 코드는 filter() 적용이 끝났기 때문에 모든 요소에 적용된다
+            $(function() {
+                $("li:nth-child(3)").css("color", "green");
+                $("li")
+                    .filter(":nth-child(4)")
+                        .css("color", "red")
+                        .text("변경")
+                    .end()
+                    .css("background", "orange")
+                        // eq() : n번째 인덱스를 찾음 (일종의 필터이다)
+                        // 뒤에서 카운트 하고 싶을 땐 음수 값을 준다(제일 마지막 인덱스는 -1)
+                        .eq(0)
+                        .css({fontSize: '2em'})
+                    .end()
+                        .filter(":gt(4):not(:nth-child(7))")
+                        .css("text-decoration", "underline");
+                // 디폴트 속성이 text인 요소까지 전부 적용됨
+                $("input:text").css("width", "50%");
+                // 명시된 속성에만 적용해야 할 때 : []
+                $("input[type='text']").css("padding", ".5em");
+            });
+        </script>
+    </head>
+    <body>
+        <ol>
+            <li>목록</li>
+            <li>목록</li>
+            <li>목록</li>
+            <li>목록</li>
+            <li>목록</li>
+            <li>목록</li>
+            <li>목록</li>
+            <li>목록</li>
+            <li>목록</li>
+            <li>목록</li>
+        </ol>
+        <input >
+        <input type="text">
+        <input >
+    </body>
+</html>
