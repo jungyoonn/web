@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            // $와 jQuery는 같다고 출력되지만
+            console.log(jQuery, typeof jQuery, jQuery === $);
+            console.log($, typeof $);
+            
+            // noConflict를 쓰면 다르다고 출력됨
+            $.noConflict();
+            console.log(jQuery, typeof jQuery, jQuery === $);
+            console.log($, typeof $);
+
+            /* 
+                위 문제를 해결하려면 겉에 즉시 실행 함수(익명 함수)를 씌우고
+                파라미터로 $를 넣어서 jQuery로 전달해 주면 된다
+            */
+            (function($) {
+                $(function() {
+                    $("p").css({color: 'red', "text-decoration" : 'underline'}).click(function() {
+                        alert($(this).text());
+                    })
+                    .hover(function() {
+                        $(this).css('background', 'orange')
+                    }, function() {
+                        $(this).css('background', 'transparent')
+                    })
+                })
+            })(jQuery);
+
+            // 아래 네 가지도 똑같이 동작함
+            window.onload = function() {
+                jQuery("p").css("border", "1px solid black");
+            }
+
+            jQuery(document).ready(function() {
+                console.log(1);
+            })
+
+            jQuery().ready(function() {
+                console.log(2);
+            })
+            
+            jQuery(function() {
+                console.log(3);
+            })
+        </script>
+    </head>
+    <body>
+        <p>hello jQuery</p>
+        <p>hello jQuery</p>
+        <p>hello jQuery</p>
+        <p>hello jQuery</p>
+    </body>
+</html>
