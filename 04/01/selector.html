@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            body {margin: 0; padding: 0;}
+            .wrap {margin: 0 auto; width: 1024px;}
+            .header {background-color: aliceblue; height: 150px;}
+            .content-wrapper {height: 700px;}
+            .content-wrapper > div {float: left;}
+            .content {
+                background-color: lavender;
+                width: 60%;
+            }
+            .top {width: 100%; height: 30%; background-color: azure;}
+            .bottom {height: 70%;}
+            .content > ul > li {
+                width: 90%;
+                height: 50px;
+                margin: 10px;
+                background-color: rgb(231, 207, 255);
+            }
+            .sub {
+                width: 300px; 
+                height: 100px; 
+                background-color: antiquewhite;
+                float: left;
+                margin: 0 50px;
+            }
+            .side {
+                background-color: beige;
+                width: 40%;
+                height: 70%;
+            }
+            .side-content {
+                width: 100px;
+                height: 50px;
+                margin: 10px;
+                background-color: rgb(201, 201, 201);
+            }
+            p {text-align: center;}
+            h3 {margin: 0; text-align: center;}
+            .footer {background-color: skyblue; height: 100px;}
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $("button").click(function() {
+                $(this).closest(".content > div")
+                // .nextAll().filter(":lt(2)")
+                .nextUntil(":last-child")
+                .css("background-color", "deeppink")
+                .closest(".content")
+                .find("button:last-child").css("color", "red")
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <h3>헤더</h3>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="content top">
+                    <p>컨텐츠</p>
+                    <div class="sub left"></div>
+                    <div class="sub rignt"> 
+                        <button>로그인</button>
+                    </div>
+                </div>
+                <div class="content bottom">
+                    <p>컨텐츠</p>
+                    <ul>
+                        <li>내용1</li>
+                        <li>내용2</li>
+                        <li>내용3</li>
+                    </ul>
+                </div>
+                <div class="side">
+                    <p>사이드</p>
+                    <div class="side-content"></div>
+                    <div class="side-content"></div>
+                    <div class="side-content"></div>
+                    <div class="side-content"></div>
+                    <div class="side-content"></div>
+                    <div class="side-content"></div>
+                    <div class="side-content"></div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <h3>꼬리</h3>
+            </div>
+        </div>
+    </body>
+</html>
