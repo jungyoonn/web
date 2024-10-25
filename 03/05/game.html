@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>guideLine</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #box {
+            width: 1024px;
+            height: 700px;
+            border: 1px solid;
+            margin: 0 auto;
+            position: relative;
+        }
+        #vertical {
+            width: 1px;
+            height: 700px;
+            background-color: gray;
+            position: absolute;
+        }
+        #horizontal {
+            width: 1024px;
+            height: 1px;
+            background-color: gray;
+            position: absolute;
+        }
+        #target{
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+        }
+        h3, h4 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="vertical"></div>
+        <div id="horizontal"></div>
+        <div id="target"></div>
+    </div>
+    <h3> x: 0, y: 0 </h3>
+    <h4> 점수 : 0</h4>
+    <script>
+        document.querySelector("#box").addEventListener("mousemove", function (e) {
+            console.log(e);
+            document.querySelector("h3").innerHTML = `x : ${e.offsetX}, y : ${e.offsetY}`;
+            document.querySelector("#vertical").style.left = e.offsetX + 'px';
+            document.querySelector("#horizontal").style.top = e.offsetY + 'px';
+            // 부하를 줄이려면 바깥에다가 document.querySelector를 변수형으로 바꾸어서 빼놔야 함.
+        })
+        // 사라지는거
+        let cnt = 0;
+        document.querySelector("#target").addEventListener("click", function(){
+            const colors = ['blue', 'green', 'purple', 'deeppink', 'hotpink', 'brown', 'lime', 'black', 'grey'];
+            const target = document.querySelector("#target");
+            target.style.display="none";
+            window.alert("목표를 포착했다!");
+            target.style.backgroundColor = colors[cnt];
+            cnt++;
+            target.style.display = "block"
+            document.querySelector("h4").innerHTML = `점수 : ${100 * cnt}`;
+            if(cnt == colors.length) {
+                cnt = 0;
+            }
+            // 우측의 대입자에는 문자열로 줘야 작동함, 그냥쓰면바보
+        })
+        // 움직이는거
+        setInterval(function (){
+            const target = document.querySelector("#target");
+              
+            let coordX = (Math.random()*1024 + 1);
+            let coordY = (Math.random()*700 + 1);  
+            
+            target.style.top = coordY + "px";
+            target.style.left = coordX + "px";
+        }, 1000)
+
+    </script>
+</body>
+
+</html>
