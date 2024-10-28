@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $(function() {
+                console.log($("div:nth-child(1)").add("div:nth-child(2)").end().text()); // 요소1
+                console.log($("body").children("div"));
+                
+                console.log($("div").is(".def")); // 하나라도 만족하면 참이기 때문에 개별 탐색을 할 땐 반복문을 사용한다
+                
+                // 방법 1
+                $("div").each((i, item) => {
+                    console.log(i, item, $("div")[i]); // item == $("div")[i]
+                });
+
+                // 2
+                $("div").each(function(i, item) {
+                    console.log($(item).is(".abc"));
+                });
+
+                //3
+                for(let i = 0; i < $("div").length; i++) {
+                    console.log($("div").eq(i).text());
+                }
+
+                //4
+                for(let i in $("div")) {
+                    if(i >= 0 && i <= $("div").length)
+                        console.log($($("div")[i]).text());
+                }
+
+                // each() 사용법
+                // $("selector").each(할 일)
+                // $each(객체, 할 일)
+            });
+        </script>
+    </head>
+    <body>
+        <div class="abc">요소1 </div>
+        <div class="def">요소2 </div>
+        <div class="def">요소3 </div>
+    </body>
+</html>
