@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
+            li {cursor: pointer;}
            .layer {
                 position: fixed;
                 width: 100%;
@@ -28,24 +29,28 @@
         <script>
             $(function() {
                 let counter = 1;
+                function makeLi(title) {
+                    return `<li class="list-group-item">
+                        <a href="#" class="text-decoration-none">
+                            <p class="text-black fw-bold mt-3 text-truncate">${title}</p>
+                            <div class="clearfix text-secondary">
+                                <span class="float-start text-muted">writer</span>
+                                <a class="del float-end small text-danger">삭제</button>
+                                <span class="float-end small text-muted mx-2">2024-10-28</span>
+                            </div>
+                        </a>
+                    </li>`;
+                }
 
                 // 한 번에 50개씩 로드
                 function callList() {
                     let str = '';
                     for(let i = 0; i < 50; i++) {
-                        str += 
-                    `<li class="list-group-item">
-                        <a href="#" class="text-decoration-none">
-                            <p class="text-black fw-bold mt-3 text-truncate">글 제목 ${counter++}</p>
-                            <div class="clearfix text-secondary">
-                                <span class="float-start">writer</span>
-                                <span class="float-end small">2024-10-28</span>
-                            </div>
-                        </a>
-                    </li>`
+                        str += makeLi(`글 제목 ${counter++}`);
                     }
                     $("ul").append(str);
                 }
+                callList();
 
                 // 무한 스크롤
                 // 스크롤바가 움직일 때마다 이벤트 호출
@@ -69,20 +74,42 @@
                         $(".to-top a").hide(500);
                     }
                 });
-                callList();
-
+                
                 // to top 버튼 클릭 이벤트
                 $(".to-top a").click(function() {
                     // 기본 이벤트 작업을 하지 않겠다
                     // (a 태그의 경우 연결된 태그로 이동하는 이벤트가 사라짐!)
                     // event.preventDefault(); 
                 });
+
+                // 글 작성
+                $("form").submit(function() {
+                    event.preventDefault();
+                    if($(this.v).val().trim() && confirm('게시글을 등록하시겠습니까?')) {
+                        $("ul").prepend(makeLi($(this.v).val()));
+                        $(this.v).val('')
+                    }
+                });
+                
+                // 글 삭제
+                // on() : 이벤트 바인딩 전용 메서드 (이벤트 위임)
+                $("ul").on("click", '.del', function() {
+                    event.preventDefault();
+                    confirm('삭제하시겠습니까?') && $(this).closest("li").remove();
+                });
             });
-        </script>
+            </script>
     </head>
     <body>
         <div class="wrap container">
             <h3 class="my-3 text-center fw-bold" id="top">my sns</h3>
+            <form>
+                <div class="input-group mb-3 small">
+                    <input name="v" type="text" class="form-control" placeholder="글 작성 (엔터 입력 시 등록)">
+                    <button class="btn btn-dark" type="submit">등록</button>
+                </div>
+            </form>
+            
             <ul class="list-group">
                 <!-- <li class="list-group-item">
                     <a href="#" class="text-decoration-none">
