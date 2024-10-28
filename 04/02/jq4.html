@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            .box {width: 100px; height: 100px;}
+            .box1 {background-color: aliceblue;}
+            .box2 {background-color: rgb(247, 183, 215);}
+            .box3 {background-color: lavender;}
+
+            .my-box {
+                width: 300px;
+                height: 300px;
+                padding: 50px;
+                border: 20px solid;
+                background-color: pink;
+            }
+
+            button {
+                margin: 5px;
+                width: 100px;
+                height: 30px;
+                background-color: white;
+                border: 1px solid #222;
+                border-radius: 15px;
+            }
+            button:hover {
+                text-decoration: underline;
+                background-color: azure;
+                width: 105px;
+                border: 1px solid #6ca4ff;
+            }
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $(function() {
+                $("button:eq(0)").click(function() {
+                    // $(".box").attr("class", function(i, item) {
+                    //     return "box" + (i%3 + 1);
+                    // });
+                    // 위 펑션은 의도한 기능을 수행할 수 없다 
+                    // (원래 있던 box 클래스에 box1을 추가하는 게 아니라 덮어씌우기 때문)
+
+                    $(".box").addClass(function(i, item) {
+                        return "box" + (i%3 + 1);
+                    });
+                });
+                $("button:eq(1)").click(function() {
+                    $(".box").removeClass(function(i, item) {
+                        return "box" + (i%3 + 1);
+                    });
+                });
+                $("button:eq(2)").click(function() {
+                    $(".box").toggleClass(function(i, item) {
+                        return "box" + (i%3 + 1);
+                    });
+                });
+                $("button:eq(3)").click(function() {
+                    $(".box").css("width", parseInt($('.box').css("width"))*2);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="boxes">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+        <div class="btns">
+            <button>add class</button>
+            <button>remove class</button>
+            <button>toggle class</button>
+            <button>width * 2</button>
+        </div>
+    </body>
+</html>
