@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $(function() {
+                $("h2").click(function() {
+                    // true가 없으면 첫 번째 요소에만 클릭 이벤트 적용
+                    $(this).clone(true).appendTo("body");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h2>클릭</h2>
+        <div onclick="alert(1)">
+            <div onclick="alert(2)">
+                <div onclick="alert(3)">
+                    <h3 onclick="alert(4)">클릭 미</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
