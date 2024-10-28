@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            div {
+                border: 1px solid purple; padding: 0.5em;
+            }
+
+            button {
+                margin: 5px;
+                width: 100px;
+                height: 30px;
+                background-color: white;
+                border: 1px solid #222;
+                border-radius: 15px;
+            }
+            button:hover {
+                text-decoration: underline;
+                background-color: azure;
+                width: 105px;
+                border: 1px solid #6ca4ff;
+            }
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            let counter = 1;
+            $(function() {
+                $("button:eq(0)").click(function() {
+                    // data() : 태그의 속성 중 data-어쩌고 전용 메서드
+                    // data("no", ++counter)
+                    $(".target").append(`<div data-no='${++counter}'>target append${counter}</div>`);
+                });
+                $("button:eq(1)").click(function() {
+                    $(".target").prepend(`<div data-no='${++counter}'>target prepend ${counter}</div>`);
+                });
+                $("button:eq(2)").click(function() {
+                    $(".target").after(`<div data-no='${++counter}'>target after ${counter}</div>`);
+                });
+                $("button:eq(3)").click(function() {
+                    $(".target").before(`<div data-no='${++counter}'>target before ${counter}</div>`);
+                });
+
+                // $(셀렉터).append("태그")
+
+                // $("태그").appendTo("셀렉터")
+
+                $("button:eq(4)").click(function() {
+                    // 밑에 세 줄은 같은 기능을 한다
+                    $(`<div data-no='${++counter}'>target appendTo ${counter}</div>`).appendTo(".target");
+                    $(`<div data-no='${++counter}'>`).data("no", counter).text("target appendTo " + counter).appendTo(".target");
+                    $("<div>").attr("data-no", ++counter).text("target appendTo " + counter).appendTo(".target");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="btns">
+            <button>append</button>
+            <button>prepend</button>
+            <button>after</button>
+            <button>before</button>
+
+            <button>appendTo</button>
+        </div>
+
+        <div>
+            <div class="target" data-no="1">target</div>
+        </div>
+    </body>
+</html>
