@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            li {cursor: pointer;}
+           .layer {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background: #0005 url(https://i.gifer.com/ZKZg.gif) no-repeat center;
+                background-size: 60px;
+                top: 0;
+                left: 0;
+           }
+           .hide {display: none;}
+           .to-top i {
+                position: fixed; 
+                right: 50px; 
+                bottom: 100px;
+            }
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $(function() {
+                let counter = 1;
+                function makeLi(title) {
+                    return `<li class="list-group-item">
+                        <a href="#" class="text-decoration-none">
+                            <p class="text-black fw-bold mt-3 text-truncate">${title}</p>
+                            <div class="clearfix text-secondary">
+                                <span class="float-start text-muted">writer</span>
+                                <div class="form-cb form-check float-end small invisible">
+                                    <input class="form-check-input small" type="checkbox">
+                                    <label class="form-check-label text-danger"></label>
+                                </div>
+                                <a class="del float-end small text-danger">삭제</button>
+                                <span class="float-end small text-muted mx-2">2024-10-28</span>
+                            </div>
+                        </a>
+                    </li>`;
+                }
+
+                // 한 번에 50개씩 로드
+                function callList() {
+                    let str = '';
+                    for(let i = 0; i < 7; i++) {
+                        str += makeLi(`글 제목 ${counter++}`);
+                    }
+                    $("ul").append(str);
+                    // $(this).clone(true).appendTo("li");
+                }
+                callList();
+
+                // 무한 스크롤
+                // 스크롤바가 움직일 때마다 이벤트 호출
+                $(window).scroll(function() {
+                    console.log($(this).scrollTop(), $(this).height(), $(document).height());
+                    const result = $(document).height() -  $(this).height() - 300;
+                    
+                    // 스크롤바가 제일 밑에 도달했을 때
+                    if($(this).scrollTop() > result) {
+                        $(".layer").removeClass("hide");
+                        setTimeout(function() {
+                            callList();
+                            $(".layer").addClass("hide");
+                        }, 1000);
+                    }
+
+                    // 화면 기준 한 페이지가 넘어갔을 때
+                    if($(this).scrollTop() > $(this).height()) {
+                        $(".to-top a").show(500);
+                    } else {
+                        $(".to-top a").hide(500);
+                    }
+                });
+            
+                // 글 작성
+                $("form").submit(function() {
+                    event.preventDefault();
+                    if($(this.v).val().trim() && confirm('게시글을 등록하시겠습니까?')) {
+                        $("ul").prepend(makeLi($(this.v).val()));
+                        $(this.v).val('')
+                    }
+                });
+
+                // 삭제 버튼 클릭 시
+                $("button:eq(1)").click(function() {
+                    $(this).text(function(i, j, k) {
+                        return j == "삭제" ? "삭제 취소" : "삭제";
+                    }).next().toggleClass("d-none");
+
+                    $(".form-cb").toggleClass("invisible");
+                });
+                
+                // 전체 선택
+                $(":checkbox").change(function() {
+                    $(":checkbox:eq(0)").prop("checked", !($(":checkbox:gt(0)").length - $(":checkbox:gt(0)").filter(":checked").length));
+                    $("button:eq(2)").prop("disabled", !($(":checkbox:checked").length));
+                });
+
+                $(":checkbox:eq(0)")
+                .change(function() {
+                    console.log(this.checked);
+                    console.log(this);
+                    $(":checkbox").prop("checked", !this.checked);
+                });
+
+                // 확인 버튼 클릭 시
+                $("button:eq(2)").click(function() {
+                    confirm('삭제하시겠습니까?') && $(":checkbox:gt(0)").filter(":checked").closest("li").remove();
+                    $(":checkbox").prop("checked", false);
+                });
+
+                // 개별 삭제
+                $("ul").on("click", '.del', function() {
+                    event.preventDefault();
+                    confirm('삭제하시겠습니까?') && $(this).closest("li").remove();
+                });
+            });
+            </script>
+    </head>
+    <body>
+        <div class="wrap container">
+            <h3 class="my-3 text-center fw-bold" id="top">my sns</h3>
+            <h6 class="my-3 text-center" id="top">게시글 관리</h3>
+
+            <form>
+                <div class="input-group mb-3 small">
+                    <input name="v" type="text" class="form-control" placeholder="글 작성 (엔터 입력 시 등록)">
+                    <button class="btn btn-dark" type="submit">등록</button>
+                </div>
+            </form>
+
+            <div class="text-end my-3">
+                <button class="btn btn-dark btn-sm">삭제</button>
+                <button class="btn btn-danger d-none btn-sm" disabled>확인</button>
+            </div>
+            <div class="form-cb form-check small invisible">
+                <input class="form-check-input small" type="checkbox">
+                <label class="form-check-label text-danger">전체 선택</label>
+            </div>
+            
+            <ul class="list-group">
+                <!-- <li class="list-group-item">
+                    <a href="#" class="text-decoration-none">
+                        <p class="text-black fw-bold mt-3 text-truncate">${title}</p>
+                        <div class="clearfix text-secondary">
+                            <span class="float-start text-muted">writer</span>
+                            <div class="form-cb form-check float-end small invisible">
+                                <input class="form-check-input small" type="checkbox">
+                                <label class="form-check-label text-danger"></label>
+                            </div>
+                            <a class="del float-end small text-danger">삭제</button>
+                            <span class="float-end small text-muted mx-2">2024-10-28</span>
+                        </div>
+                    </a>
+                </li> -->
+            </ul>
+            <div class="layer hide"></div>
+            <div class="to-top">
+                <a href="#top" class="text-dark hide"><i class="fa-regular fa-circle-up fs-2 fw-bold"></i></a>
+            </div>
+        </div>
+    </body>
+</html>
