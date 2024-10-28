@@ -6,17 +6,23 @@
         <title>Page Title</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
            .layer {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: #0005 url(https://i.gifer.com/ZKZg.gif) no-repeat center;
-            background-size: 60px;
-            top: 0;
-            left: 0;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background: #0005 url(https://i.gifer.com/ZKZg.gif) no-repeat center;
+                background-size: 60px;
+                top: 0;
+                left: 0;
            }
-           .layer.hide {display: none;}
+           .hide {display: none;}
+           .to-top i {
+                position: fixed; 
+                right: 50px; 
+                bottom: 100px;
+            }
         </style>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
         <script>
@@ -41,10 +47,13 @@
                     $("ul").append(str);
                 }
 
+                // 무한 스크롤
                 // 스크롤바가 움직일 때마다 이벤트 호출
                 $(window).scroll(function() {
                     console.log($(this).scrollTop(), $(this).height(), $(document).height());
                     const result = $(document).height() -  $(this).height() - 300;
+                    
+                    // 스크롤바가 제일 밑에 도달했을 때
                     if($(this).scrollTop() > result) {
                         $(".layer").removeClass("hide");
                         setTimeout(function() {
@@ -52,16 +61,30 @@
                             $(".layer").addClass("hide");
                         }, 1000);
                     }
+
+                    // 화면 기준 한 페이지가 넘어갔을 때
+                    if($(this).scrollTop() > $(this).height()) {
+                        $(".to-top a").show(500);
+                    } else {
+                        $(".to-top a").hide(500);
+                    }
                 });
                 callList();
+
+                // to top 버튼 클릭 이벤트
+                $(".to-top a").click(function() {
+                    // 기본 이벤트 작업을 하지 않겠다
+                    // (a 태그의 경우 연결된 태그로 이동하는 이벤트가 사라짐!)
+                    // event.preventDefault(); 
+                });
             });
         </script>
     </head>
     <body>
         <div class="wrap container">
-            <h3 class="my-3 text-center">my sns</h3>
+            <h3 class="my-3 text-center fw-bold" id="top">my sns</h3>
             <ul class="list-group">
-                <li class="list-group-item">
+                <!-- <li class="list-group-item">
                     <a href="#" class="text-decoration-none">
                         <p class="text-black fw-bold mt-3 text-truncate">글 제목</p>
                         <div class="clearfix text-secondary">
@@ -69,9 +92,12 @@
                             <span class="float-end small">2024-10-28</span>
                         </div>
                     </a>
-                </li>
+                </li> -->
             </ul>
             <div class="layer hide"></div>
+            <div class="to-top">
+                <a href="#top" class="text-dark hide"><i class="fa-regular fa-circle-up fs-2 fw-bold"></i></a>
+            </div>
         </div>
     </body>
 </html>
