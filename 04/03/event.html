@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            h2 {border: 5px solid black; padding: 16px; background-color: blanchedalmond;}
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $(function() {
+                // 이벤트 전파 (같은 타입의 이벤트가 겹쳐 있을 때 ex: click)
+                // 기본값 : 버블링 (하위 > 상위)
+                // 변경 가능값 : 캡쳐링 (상위 > 하위)
+
+                $("h2").click(function() {
+                    $("h2").css("background-color", "aliceblue")
+                });
+                $("a").click(function() {
+                    event.preventDefault(); // 기본 이벤트를 막음
+                    event.stopPropagation(); // h2만 눌렀을 때 이벤트를 적용하고 a를 눌렀을 땐 적용하지 않겠다
+                });
+
+                // preventDefalut()와 stopPropagation()을 동시에 수행할 수 있게 하는 방법
+                $("a").click(function() {
+                    return false;    
+                    // return 0; : 얘도 가능
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h2>
+            <a href="https://www.naver.com">네이버</a>
+        </h2>
+    </body>
+</html>
