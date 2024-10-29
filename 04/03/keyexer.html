@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            img {
+                width: 190px;
+            }
+            .character {width: 190px; position: absolute;}
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $(function() {
+                $(window).keydown(function() {
+                    console.log(event); // keyCode 뽑아내기
+                    
+                    const $pos = $(".character").position();
+                    // 왼쪽 이동 a, left
+                    switch(event.keyCode) {
+                        case 'A'.charCodeAt(0): 
+                        case 37:
+                            $(".character").css("left", $pos.left - 5);
+                            break;
+                        case 'W'.charCodeAt(0):
+                        case 38:
+                            $(".character").css("top", $pos.top - 5);
+                            break;
+                        case 'D'.charCodeAt(0):
+                        case 39:
+                            $(".character").css("left", $pos.left + 5);
+                            break;
+                        case 'S'.charCodeAt(0):
+                        case 40:
+                            $(".character").css("top", $pos.top + 5);
+                            break;
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        <!-- <img src="https://avatar.maplestory.nexon.com/Character/180/ILDJFKMGOHILENCPDFKMGODKHJBCPOBANHADBIOGDLPJPLIONDKAKAHMBDEJAKFNLLJPJAPDBGCLILNJNAJOILCCGHBCFBBOPOBHODDACBIPCGCNDJMFDGAJKJALHMIIBLKJKAHNKCDGGNNNBDDOBKLHHGDEFHPAFOHGANPGKLHKOPMCDMIBBNLKDOBKBIMJNPDGOLGABOCJFGFMBHEDGAJOEHEDMPBPPNIFCPFFBFEPHLFOOOBLMEDIOCOOMLON.png"> -->
+        <!-- <img src="https://avatar.maplestory.nexon.com/Character/180/AEJPEKKKJFDDDBCHKAIONBPEENOCIEECCCDPLPGPMLGHDDLGJEAGEKPAGOKOEEKKMCDJAFFNAGEOOJKMAGEONOJDOEEGKBNCLMNHFICFMBHPPDKNLGNNFGLOHOJCGMFMJJJANICMHNFMKHHNGEMNPLCCHOAKKLLOEDLAFEEPMNHJNCDAANMIJMHLCABHPCMGKNBBCFEHEBJDKIKDGJGIKGHDCGMBAPNLAGDDHCDNODABGMAGCNJFJNCHLKBKDBIF.png"> -->
+        <img class="character" src="https://avatar.maplestory.nexon.com/Character/180/JJCOCGIDPENBPKOPJBEKCHHJKDBMDLFOBIIAMILGDCNAIGCIAKOOBIMLLEGPCNKBNOGAGNBOJJNNBGMCBOHBGAPKEOBOBIMGFGPHJNNICJEGHBCFIKOBEHHOHMCPGMBPCLADCMMLIGIHCACOPHALAJCAMHPDDENBOOCMCOHDKGAMHKNFIFNOGDAKOKFHDHBNFFANNKELAOGNFKHABMCHEDFEPIFOADIOIKECCDACIIIIIGEHKKMMIEKMFOFFOCFO.png">
+    </body>
+</html>
