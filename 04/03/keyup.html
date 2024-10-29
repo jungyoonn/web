@@ -17,6 +17,7 @@
                 });
 
                 // keypress()는 특수 키(컨트롤, 알트 등)는 인식하지 못한다
+                // 셋 중에 사용 빈도가 제일 낮다
                 $("textarea").keypress(function() {
                     $(".keypress").text($(this).val().length);
                 });
