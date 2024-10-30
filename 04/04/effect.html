@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+        <style>
+            hr + div h3 {border: 1px solid; padding: 20px; background-color: aliceblue;}
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $(function() {
+                // 괄호에 시간 속성이 들어가면 시간차가 생기면서 숨겨진다(나타난다)
+
+                //
+                $("button:eq(0)").click(function() {
+                    $(".targets *").show(200);
+                })
+                $("button:eq(1)").click(function() {
+                    // display: none 으로 속성이 바뀜
+                    // 콜백 함수 : hide가 이루어지고 난 이후에 할 일
+                    $(".targets *").hide("slow", function() {
+                        // alert("hide");
+                    });
+                })
+                $("button:eq(2)").click(function() {
+                    $(".targets *").toggle();
+                })
+                
+                // slide
+                // 높이 값이 바뀌면서 나타나거나 사라짐
+                $("button:eq(3)").click(function() {
+                    $(".targets *").slideDown(200);
+                })
+                $("button:eq(4)").click(function() {
+                    // 콜백 함수 : slide가 이루어지고 난 이후에 할 일
+                    $(".targets *").slideUp("fast", function() {
+                        // alert("slideUp");
+                    });
+                })
+                $("button:eq(5)").click(function() {
+                    $(".targets *").slideToggle();
+                })
+
+                // fade
+                // opacity(투명도) 값의 변화로 나타나거나 사라짐
+                $("button:eq(6)").click(function() {
+                    $(".targets *").fadeIn(200);
+                })
+                $("button:eq(7)").click(function() {
+                    // 콜백 함수 : fade가 이루어지고 난 이후에 할 일
+                    $(".targets *").fadeOut("slow", function() {
+                        // alert("fadeOut");
+                    });
+                })
+                $("button:eq(8)").click(function() {
+                    $(".targets *").fadeToggle();
+                })
+                $("button:eq(9)").click(function() {
+                    // fadeTo(시간, 투명도 값(0 이상 1 미만의 값))
+                    $(".targets *").fadeTo(500, parseInt(Math.random() * 11) / 10);
+                })
+            });
+        </script>
+    <body>
+        <div class="btn-wrap">
+            <h3>toggle</h3>
+            <button>show</button>
+            <button>hide</button>
+            <button>toggle</button>
+            <h3>slide</h3>
+            <button>slideDown</button>
+            <button>slideUp</button>
+            <button>slideToggle</button>
+            <h3>fade</h3>
+            <button>fadeIn</button>
+            <button>fadeOut</button>
+            <button>fadeToggle</button>
+            <button>fadeTo (random)</button>
+        </div>
+        <hr>
+        <div class="targets">
+            <h3>대상 텍스트</h3>
+            <h3>대상 텍스트</h3>
+            <h3>대상 텍스트</h3>
+            <h3>대상 텍스트</h3>
+            <h3>대상 텍스트</h3>
+        </div>
+    </body>
+</html>
