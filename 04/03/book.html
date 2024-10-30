@@ -45,13 +45,13 @@
                             console.log(data.documents.length);
                             let str = "";
                             for(let i = 0; i < data.documents.length; i++) {
-                                str += `<div class="mx-2 mt-2 p-3 col-2 card"><img src="${data.documents[i].thumbnail}" alt="이미지 미제공">
+                                str += `<div class="mx-2 mt-2 p-3 col-2 card"><img src="${data.documents[i].thumbnail}" onerror="this.src='https://placehold.co/140x174?text=No+Image'">
                                     <p class="text-truncate">제목 : ${data.documents[i].title}</p>
-                                    <p>저자 : ${data.documents[i].authors}</p>
+                                    <p class="text-truncate">저자 : ${data.documents[i].authors}</p>
                                     <p>가격 : ${data.documents[i].price}\\</p></div>`;
                                 }
                             $(".row").html(str);
-                            $("img").css("width", "120px");
+                            $("img").css("width", "140px");
                             $("p").css("margin", "0");
                             // str = `<img src="${data.documents[0].thumbnail}">
                             //         <p>${data.documents[0].title}</p>
