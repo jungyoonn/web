@@ -46,7 +46,7 @@
                             let str = "";
                             for(let i = 0; i < data.documents.length; i++) {
                                 str += `<div class="mx-2 mt-2 p-3 col-2 card"><img src="${data.documents[i].thumbnail}">
-                                    <p>제목 : ${data.documents[i].title}</p>
+                                    <p class="text-truncate">제목 : ${data.documents[i].title}</p>
                                     <p>저자 : ${data.documents[i].authors}</p>
                                     <p>가격 : ${data.documents[i].price}\\</p></div>`;
                                 }
