@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            .hide {display: none;}
+            .layer {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background: #0005 url(https://i.gifer.com/ZKZg.gif) no-repeat center;
+                background-size: 60px;
+                top: 0;
+                left: 0;
+           }
+            .to-top i {
+                position: fixed; 
+                right: 50px; 
+                bottom: 100px;
+            }
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            const REST_API_KEY = '622aab4f3093ba4bb4b6f3f785be8a8f';
+            $(function() {
+                $("button").click(function() {
+                    const query = $(this).prev().val();
+                    console.log(query);
+                    if(!query) return;
+
+                    const data = {query, size : 50};
+                    $.ajax({
+                        url : "https://dapi.kakao.com/v3/search/book",
+                        data,
+                        beforeSend : function(xhr) {
+                            xhr.setRequestHeader("Authorization", `KakaoAK ${REST_API_KEY}`);
+                        },
+                        success : function(data) {
+                            console.log(data.documents.length);
+                            let str = "";
+                            for(let i = 0; i < data.documents.length; i++) {
+                                str += `<div class="mx-2 mt-2 p-3 col-2 card"><img src="${data.documents[i].thumbnail}">
+                                    <p>제목 : ${data.documents[i].title}</p>
+                                    <p>저자 : ${data.documents[i].authors}</p>
+                                    <p>가격 : ${data.documents[i].price}\\</p></div>`;
+                                }
+                            $(".row").html(str);
+                            $("img").css("width", "100px");
+                            $("p").css("margin", "0");
+                            // str = `<img src="${data.documents[0].thumbnail}">
+                            //         <p>${data.documents[0].title}</p>
+                            //         <p>${data.documents[0].authors}</p>
+                            //         <p>${data.documents[0].price}</p>`;
+                            // $(".row").html(str);
+                            // $("img").css("width", "100px");
+                        }
+                    });
+                });
+
+                $(window).scroll(function() {
+                    console.log($(this).scrollTop(), $(this).height(), $(document).height());
+                    const result = $(document).height() - $(this).height() - 300;
+
+                    // 다음 목록 소환
+                    if($(this).scrollTop > result) {
+                        $(".layer").removeClass("hide");
+                        setTimeout(function() {
+                            $(".layer").addClass("hide");
+                        }, 700);
+                    }
+
+                    // 위로 올리기
+                    if($(this).scrollTop() > $(this).height()) {
+                        $(".to-top a").show(500);
+                    } else {
+                        $(".to-top a").hide(500);
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div name="name" id="top" class="mx-auto col-12 col-sm-8 col-md-8 col-lg-7 col-xl-6 col xxl-5 card p-3 mt-5"> 
+                <h4 class="text-center mt-2">책 검색</h4>
+                <div class="input-group mb-3 my-2">
+                    <input class="form-control">
+                    <button class="btn btn-outline-dark">찾기</button>
+                </div>
+            </div>
+            <div class="mx-auto row p-3 mt-5">
+                <!-- <div class="mx-2 col-2 bg-dark"></div>
+                <div class="mx-2 col-2 bg-secondary"></div>
+                <div class="mx-2 col-2 bg-dark"></div>
+                <div class="mx-2 col-2 bg-secondary"></div> -->
+            </div>
+            <!-- <ul>
+                <li><img src=""></li>
+                <li>title</li>
+                <li>author</li>
+                <li>price</li>
+            </ul> -->
+        </div>
+        <div class="layer hide"></div>
+        <div class="to-top">
+            <a href="#top" class="text-dark hide"><i class="fa-regular fa-circle-up fs-2 fw-bold"></i></a>
+        </div>
+    </body>
+</html>
