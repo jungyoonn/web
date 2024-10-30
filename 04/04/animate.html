@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Page Title</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <style>
+            .box {width: 100px; height: 100px; background-color: olive; cursor: pointer;}
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
+        <script>
+            $(function() {
+                // $(".box").click(function() {
+                //     alert("클릭");
+                //     $(this).css("background-color", "purple");
+                // });
+
+                // $(".box").dblclick(function() {
+                //     alert("더블클릭");
+                //     $(this).css("background-color", "grey");
+                // });
+
+                // 더블클릭 안에 클릭도 포함이라서 위에 두 메서드가 동시 적용이 안 되기 때문에 밑에처럼 동시에 한다
+                // animate()에 마지막 인자로 콜백 함수도 추가 가능
+                // .stop()을 주는 이유는 더블클릭 안에 클릭이 포함이라서 두 번의 클릭 수행이 일어나기 때문이다 (딜레이도 줄 수 있음)
+                $(".box").on("click dblclick", function(e) {
+                    console.log(e.type);
+                    switch (e.type) {
+                        case "click":
+                            $(this).stop().css("background-color", "purple")
+                            .animate({width:'+=100', height:'+=100'}, 500);
+                            break;
+                    
+                        case "dblclick":
+                            $(this).stop().css("background-color", "grey")
+                            .animate({width:'-=100', height:'-=100'}, 500);
+                            break;
+                    }
+                })
+            });
+        </script>
+    <body>
+        <div class="box"></div>
+    </body>
+</html>
